@@ -1,0 +1,7 @@
+172.30.1.1:5000/openshift/mysql
+
+oc new-app --name hello --build-env npm_config_registry=https://registry.npmjs.org https://github.com/marcorosati/download-script-app.git
+oc expose svc/hello (no problema router)
+
+NB il pod hook non riesce a connettersi al router quindi nella curl dello script usare l'ip del service http://172.30.201.79:8080
+NB lo script restituito dall'apphello è semplificato (non ha controlli sugli errori di creazione tabella per esempio)
